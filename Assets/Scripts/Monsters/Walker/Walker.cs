@@ -9,7 +9,7 @@ public class Walker : MonoBehaviour
     [SerializeField] private float stoppingDistance = 1.5f;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float closeRange = 3f;
-    [SerializeField] private float attackRange = 1f; // Distance at which Walker attacks
+    [SerializeField] private float attackRange = 1f;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private NavMeshAgent _navMeshAgent;
 
@@ -28,6 +28,14 @@ public class Walker : MonoBehaviour
 
     private void Update()
     {
+        bool isLookingAround = _animator.GetCurrentAnimatorStateInfo(0).IsName("LookingAround");
+
+        if (isLookingAround)
+        {
+            _navMeshAgent.isStopped = true;
+            return;
+        }
+
         DetectPlayer();
 
         if (isChasing && targetPlayer != null)
@@ -45,18 +53,18 @@ public class Walker : MonoBehaviour
 
                 if (distanceToPlayer <= closeRange)
                 {
-                    FacePlayerInstantly(); // Always face the player if very close
+                    FacePlayerInstantly(); 
                 }
                 else
                 {
-                    RotateTowardsPlayer(); // Smoothly rotate if farther away
+                    RotateTowardsPlayer(); 
                 }
 
                 _navMeshAgent.SetDestination(targetPlayer.position);
 
                 if (!isRunning)
                 {
-                    _animator.SetTrigger("Running");
+                    _animator.SetBool("Running", true);
                     isRunning = true;
                 }
             }
@@ -65,7 +73,7 @@ public class Walker : MonoBehaviour
         {
             if (isRunning)
             {
-                _animator.SetTrigger("Idle");
+                _animator.SetBool("Running", false);
                 isRunning = false;
             }
         }
@@ -85,6 +93,7 @@ public class Walker : MonoBehaviour
             {
                 targetPlayer = hit.transform;
                 isChasing = true;
+                _animator.SetBool("Running", true);
                 return;
             }
         }
@@ -119,7 +128,8 @@ public class Walker : MonoBehaviour
         if (!isAttacking)
         {
             isAttacking = true;
-            _navMeshAgent.isStopped = true; // Stop movement while attacking
+            _navMeshAgent.isStopped = true;
+            _animator.SetBool("Running", false);
             _animator.SetTrigger("Attack");
         }
     }

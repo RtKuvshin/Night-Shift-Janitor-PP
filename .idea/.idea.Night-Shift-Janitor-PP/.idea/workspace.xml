@@ -6,102 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a79980e2-1561-4427-bebf-0621b5b011f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/CharacterIdle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/CharacterIdle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/CrouchHideIdle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/CrouchHideIdle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/DoorClosed.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/DoorClosed.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/DoorIdle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/DoorIdle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/DoorOpen.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/DoorOpen.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/HideIdle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/HideIdle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/idle (3).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/idle (3).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/idle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/idle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/mixamo.com.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animations/mixamo.com.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Ch11_nonPBR@Standard Walk 1.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Ch11_nonPBR@Standard Walk 1.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Ch11_nonPBR@Standard Walk.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Ch11_nonPBR@Standard Walk.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Ch11_nonPBR@Standard Walk.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Ch11_nonPBR@Standard Walk.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Player.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Player.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Standard Walk 1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Standard Walk 1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Standard Walk.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Standard Walk.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Walk 1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Walk 1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Walk.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/Walk.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/cover to stand (2).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/cover to stand (2).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/cover to stand.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/cover to stand.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/crouched sneaking left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/crouched sneaking left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/crouched sneaking right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/crouched sneaking right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/falling idle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/falling idle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/falling to roll.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/falling to roll.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/hard landing.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/hard landing.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/jumping up.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/jumping up.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/left cover sneak.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/left cover sneak.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/left turn.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/left turn.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/right cover sneak.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/right cover sneak.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/right turn.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/right turn.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/run to stop.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/run to stop.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/running.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/running.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/stand to cover (2).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/stand to cover (2).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/stand to cover.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/stand to cover.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/walking.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Animations/walking.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ch11_nonPBR@Idle (1).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ch11_nonPBR@Idle (1).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ch11_nonPBR@Standard Walk (1).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ch11_nonPBR@Standard Walk (1).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Glossiness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Glossiness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1001_Specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Glossiness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Glossiness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Textures/Ch11_1002_Specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/Walls/P_Wall_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/Walls/P_Wall_02.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Dnk_Dev/HospitalHorrorPack/Prefab/P_Floor_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Dnk_Dev/HospitalHorrorPack/Prefab/P_Floor_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Walker/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Walker/Attack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/DoorWall.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/DoorWall.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/DoorAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/DoorAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +116,7 @@
       <workItem from="1740493038493" duration="3766000" />
       <workItem from="1740564386665" duration="8949000" />
       <workItem from="1740648222437" duration="5754000" />
+      <workItem from="1740737387975" duration="1484000" />
     </task>
     <servers />
   </component>
