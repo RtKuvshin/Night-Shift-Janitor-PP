@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ArmRaycast : MonoBehaviour
@@ -5,17 +6,23 @@ public class ArmRaycast : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Transform armTransform;
     [SerializeField] private float rayLength = 1f;
+    [SerializeField] private int attackDamage = 25;
 
-    private void Update()
+    private void DealDamage()
+    {
+        PlayerHealth.Instance.ReceiveDamage(attackDamage);
+    }
+
+    private void LateUpdate()
     {
         Vector3 origin = armTransform.position;
-        Vector3 direction = Vector3.back;
+        Vector3 direction = -armTransform.forward; 
 
         Debug.DrawRay(origin, direction * rayLength, Color.red);
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength, playerLayer))
         {
-            Debug.Log("Collision with player!");
+            DealDamage();
         }
     }
 }

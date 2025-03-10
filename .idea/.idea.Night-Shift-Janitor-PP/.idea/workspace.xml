@@ -7,12 +7,12 @@
     <list default="true" id="a79980e2-1561-4427-bebf-0621b5b011f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Dnk_Dev/HospitalHorrorPack/Prefab/P_Floor_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Dnk_Dev/HospitalHorrorPack/Prefab/P_Floor_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Walker/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Walker/Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/DoorWall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/DoorWall.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/DownwardRaycast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/DownwardRaycast.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +21,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44c555c8e7704b01b3778d8db4ae902827800/e4/68bd6122/Animator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/DownwardRaycast.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Microlight/MicroBar/Scripts/Animations/AnimCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/TestWalker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CameraCollision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -43,6 +44,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -116,7 +118,12 @@
       <workItem from="1740493038493" duration="3766000" />
       <workItem from="1740564386665" duration="8949000" />
       <workItem from="1740648222437" duration="5754000" />
-      <workItem from="1740737387975" duration="1484000" />
+      <workItem from="1740737387975" duration="4385000" />
+      <workItem from="1740825198087" duration="2189000" />
+      <workItem from="1740835778605" duration="1094000" />
+      <workItem from="1741115616722" duration="201000" />
+      <workItem from="1741199090702" duration="3022000" />
+      <workItem from="1741633223584" duration="2159000" />
     </task>
     <servers />
   </component>

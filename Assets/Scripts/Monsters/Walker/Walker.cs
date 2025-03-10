@@ -6,18 +6,21 @@ public class Walker : MonoBehaviour
     [SerializeField] private float detectionRadius = 10f;
     [SerializeField] private float fieldOfViewAngle = 45f;
     [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private float stoppingDistance = 1.5f;
-    [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float closeRange = 3f;
-    [SerializeField] private float attackRange = 1f;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private NavMeshAgent _navMeshAgent;
+    [SerializeField] private Transform headBone;
+    private float stoppingDistance = 1.5f;
+    private float rotationSpeed = 5f;
+    private float closeRange = 3f;
+    private float attackRange = 1f;
+    private float attackCooldown = 2f;
 
     private Transform targetPlayer;
     private Animator _animator;
     private bool isChasing = false;
     private bool isRunning = false;
     private bool isAttacking = false;
+    private float lastAttackTime = -Mathf.Infinity;
 
     private void Awake()
     {
@@ -28,6 +31,7 @@ public class Walker : MonoBehaviour
 
     private void Update()
     {
+        DetectPlayer();
         bool isLookingAround = _animator.GetCurrentAnimatorStateInfo(0).IsName("LookingAround");
 
         if (isLookingAround)
@@ -35,37 +39,49 @@ public class Walker : MonoBehaviour
             _navMeshAgent.isStopped = true;
             return;
         }
-
-        DetectPlayer();
-
         if (isChasing && targetPlayer != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, targetPlayer.position);
 
-            if (distanceToPlayer <= attackRange)
+            if (distanceToPlayer <= attackRange && Time.time >= lastAttackTime + attackCooldown)
             {
                 AttackPlayer();
             }
             else
             {
                 isAttacking = false;
-                _navMeshAgent.isStopped = false;
+                
+                if (_navMeshAgent.isStopped) 
+                {
+                    _navMeshAgent.isStopped = false; // Ensure movement resumes
+                }
 
                 if (distanceToPlayer <= closeRange)
                 {
-                    FacePlayerInstantly(); 
+                    FacePlayerInstantly();
                 }
                 else
                 {
-                    RotateTowardsPlayer(); 
+                    RotateTowardsPlayer();
                 }
 
                 _navMeshAgent.SetDestination(targetPlayer.position);
 
-                if (!isRunning)
+                if (_navMeshAgent.velocity.magnitude > 0.1f) // Check if actually moving
                 {
-                    _animator.SetBool("Running", true);
-                    isRunning = true;
+                    if (!isRunning)
+                    {
+                        _animator.SetBool("Running", true);
+                        isRunning = true;
+                    }
+                }
+                else
+                {
+                    if (isRunning)
+                    {
+                        _animator.SetBool("Running", false);
+                        isRunning = false;
+                    }
                 }
             }
         }
@@ -94,6 +110,12 @@ public class Walker : MonoBehaviour
                 targetPlayer = hit.transform;
                 isChasing = true;
                 _animator.SetBool("Running", true);
+                return;
+            }
+            else
+            {
+                _animator.SetBool("Running", false);
+                _animator.Play("LookingAround");
                 return;
             }
         }
@@ -126,11 +148,36 @@ public class Walker : MonoBehaviour
     private void AttackPlayer()
     {
         if (!isAttacking)
-        {
+        { 
             isAttacking = true;
-            _navMeshAgent.isStopped = true;
+            _navMeshAgent.isStopped = true; 
             _animator.SetBool("Running", false);
             _animator.SetTrigger("Attack");
+
+            lastAttackTime = Time.time; 
         }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        if (headBone == null) return;
+
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireSphere(headBone.position, detectionRadius);
+
+        Vector3 forward = headBone.forward * detectionRadius;
+        Quaternion leftRayRotation = Quaternion.Euler(0, -fieldOfViewAngle, 0);
+        Quaternion rightRayRotation = Quaternion.Euler(0, fieldOfViewAngle, 0);
+
+        Vector3 leftRayDirection = leftRayRotation * forward;
+        Vector3 rightRayDirection = rightRayRotation * forward;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(headBone.position, headBone.position + leftRayDirection);
+        Gizmos.DrawLine(headBone.position, headBone.position + rightRayDirection);
+
+        UnityEditor.Handles.color = Color.red;
+        UnityEditor.Handles.DrawWireArc(headBone.position, Vector3.up, leftRayDirection.normalized, fieldOfViewAngle * 2, detectionRadius);
     }
 }
