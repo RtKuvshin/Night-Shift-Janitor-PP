@@ -9,11 +9,15 @@ public class Walker : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private Transform headBone;
+    [SerializeField] private Transform armTransform;
+    [SerializeField] private float attackConeAngle = 30f;
+    [SerializeField] private float armRayLength = 1f;
+    [SerializeField] private int attackDamage = 25;
     private float stoppingDistance = 1.5f;
     private float rotationSpeed = 5f;
     private float closeRange = 3f;
     private float attackRange = 1f;
-    private float attackCooldown = 2f;
+    private float attackCooldown = 1f;
 
     private Transform targetPlayer;
     private Animator _animator;
@@ -31,6 +35,9 @@ public class Walker : MonoBehaviour
 
     private void Update()
     {
+        //Vector3 origin = armTransform.position;
+        //Vector3 direction = -armTransform.forward; 
+        //Debug.DrawRay(origin, direction * armRayLength, Color.red);
         DetectPlayer();
         bool isLookingAround = _animator.GetCurrentAnimatorStateInfo(0).IsName("LookingAround");
 
@@ -153,12 +160,41 @@ public class Walker : MonoBehaviour
             _navMeshAgent.isStopped = true; 
             _animator.SetBool("Running", false);
             _animator.SetTrigger("Attack");
-
             lastAttackTime = Time.time; 
         }
     }
 
+    public void TriggerDamage()
+    {
+        
+        //Debug.Log("Animation event triggered: TriggerDamage"); 
+        Vector3 origin = transform.position;
+        Vector3 attackDirection = (targetPlayer.position - origin).normalized;  
+        //float angleToTarget = Vector3.Angle(attackDirection, armTransform.forward);
 
+        Collider[] hits = Physics.OverlapSphere(origin, armRayLength, playerLayer);
+
+        foreach (var hit in hits)
+        {
+            Vector3 directionToTarget = (hit.transform.position - origin).normalized;
+            float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+            float distanceToTarget = Vector3.Distance(origin, hit.transform.position);
+
+            
+            Debug.Log(angleToTarget);
+            if (angleToTarget <= attackConeAngle * 0.5f && distanceToTarget <= armRayLength )
+            {
+                DealDamage(); 
+                break; 
+            }
+        }
+    }
+
+    private void DealDamage()
+    {
+        Debug.Log("DealDamage");
+        PlayerHealth.Instance.ReceiveDamage(attackDamage);
+    }
     private void OnDrawGizmos()
     {
         if (headBone == null) return;
@@ -179,5 +215,22 @@ public class Walker : MonoBehaviour
 
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.DrawWireArc(headBone.position, Vector3.up, leftRayDirection.normalized, fieldOfViewAngle * 2, detectionRadius);
+        
+        if (armTransform != null)
+        {
+            Vector3 attackForward = armTransform.forward * armRayLength;
+            Quaternion leftAttackRotation = Quaternion.Euler(0, -attackConeAngle, 0);
+            Quaternion rightAttackRotation = Quaternion.Euler(0, attackConeAngle, 0);
+
+            Vector3 leftAttackDirection = leftAttackRotation * attackForward;
+            Vector3 rightAttackDirection = rightAttackRotation * attackForward;
+
+            Gizmos.color = Color.blue; // Color for the attack cone
+            Gizmos.DrawLine(armTransform.position, armTransform.position + leftAttackDirection);
+            Gizmos.DrawLine(armTransform.position, armTransform.position + rightAttackDirection);
+
+            UnityEditor.Handles.color = Color.blue;
+            UnityEditor.Handles.DrawWireArc(armTransform.position, Vector3.up, leftAttackDirection.normalized, attackConeAngle * 2, armRayLength);
+        }
     }
 }

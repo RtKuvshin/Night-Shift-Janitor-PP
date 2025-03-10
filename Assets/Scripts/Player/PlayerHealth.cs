@@ -9,8 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int playerMaxHp = 100;
     [SerializeField] private int playerCurrentHp;
     [SerializeField] private MicroBar hpBar;
-    [SerializeField] private int testDamage = 10;
-    [SerializeField] private float testInterval = 3f;
+    //[SerializeField] private int testDamage = 10;
+    //[SerializeField] private float testInterval = 3f;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerCurrentHp = playerMaxHp;
         hpBar.Initialize(playerMaxHp);
-        StartCoroutine(TestDamageRoutine()); 
+        //StartCoroutine(TestDamageRoutine()); 
     }
 
     public void ReceiveDamage(int damage)
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
         hpBar.UpdateBar(playerCurrentHp);
     }
 
-    private IEnumerator TestDamageRoutine()
+   /* private IEnumerator TestDamageRoutine()
     {
         while (playerCurrentHp > 0)
         {
@@ -44,5 +44,5 @@ public class PlayerHealth : MonoBehaviour
             ReceiveDamage(testDamage);
             Debug.Log($"Player took {testDamage} damage. Current HP: {playerCurrentHp}");
         }
-    }
+    }*/ 
 }
