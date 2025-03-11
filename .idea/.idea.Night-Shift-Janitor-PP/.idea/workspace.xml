@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a79980e2-1561-4427-bebf-0621b5b011f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Walker/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Walker/Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/ArmRaycast.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/ArmRaycast.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +120,7 @@
       <workItem from="1741199090702" duration="3022000" />
       <workItem from="1741633223584" duration="4646000" />
       <workItem from="1741641109090" duration="5640000" />
+      <workItem from="1741715965722" duration="1110000" />
     </task>
     <servers />
   </component>
