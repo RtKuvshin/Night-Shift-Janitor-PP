@@ -12,50 +12,45 @@ public class DoorAnimation : MonoBehaviour
 
     [SerializeField] private Slider doorProgressSlider;
     [SerializeField] private GameObject doorProgressPanel;
-    [SerializeField] private float interactionDistance = 5f; // Max distance for raycast interaction
-    [SerializeField] private LayerMask doorLayer; // Layer mask for doors
-    [SerializeField] private Transform playerHead; // Reference to the player's head (or top of the player)
-    private GameObject currentDoor = null; // The door the player is interacting with
+    [SerializeField] private float interactionDistance = 5f;
+    [SerializeField] private LayerMask doorLayer;
+    [SerializeField] private Transform playerHead;
+    private GameObject currentDoor = null;
 
     private void Awake()
     {
         if (doorProgressSlider != null)
-            doorProgressPanel.gameObject.SetActive(false); // Hide slider initially
+            doorProgressPanel.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        // Cast ray to detect the door
         RaycastHit hit;
-        Ray ray = new Ray(playerHead.position, playerHead.forward); // Ray from player's head
+        Ray ray = new Ray(playerHead.position, playerHead.forward);
 
-        // Visualize the ray in the Scene view
         Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
 
         if (Physics.Raycast(ray, out hit, interactionDistance, doorLayer))
         {
-            // Check if the raycast hits a door
-            if (hit.collider.CompareTag("Door")) // Assuming doors have a tag "Door"
+            if (hit.collider.CompareTag("Door"))
             {
                 GameObject detectedDoor = hit.collider.gameObject;
 
-                // If this is a new door, reset previous door interaction
                 if (detectedDoor != currentDoor)
                 {
                     currentDoor = detectedDoor;
-                    _animator = currentDoor.GetComponentInChildren<Animator>(); // Get the animator for the new door
-                    isDoorOpen = false; // Reset door open state when switching doors
-                    ResetSlider(); // Reset the slider for the new door interaction
+                    _animator = currentDoor.GetComponentInChildren<Animator>();
+                    isDoorOpen = false;
+                    ResetSlider();
                 }
             }
         }
         else
         {
-            currentDoor = null; // No door detected
-            ResetSlider(); // Reset slider if no door is detected
+            currentDoor = null;
+            ResetSlider();
         }
 
-        // Only allow interaction if a door is detected
         if (currentDoor != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -63,7 +58,7 @@ public class DoorAnimation : MonoBehaviour
                 isHolding = true;
                 holdTimer = 0f;
                 if (doorProgressSlider != null)
-                    doorProgressPanel.gameObject.SetActive(true); // Show slider
+                    doorProgressPanel.gameObject.SetActive(true);
             }
 
             if (Input.GetKey(KeyCode.E) && isHolding)
@@ -92,7 +87,6 @@ public class DoorAnimation : MonoBehaviour
     {
         if (_animator != null)
         {
-            // Toggle the door based on its current state
             if (isDoorOpen)
             {
                 _animator.SetTrigger("Closed");
@@ -101,7 +95,7 @@ public class DoorAnimation : MonoBehaviour
             {
                 _animator.SetTrigger("Opened");
             }
-            isDoorOpen = !isDoorOpen; 
+            isDoorOpen = !isDoorOpen;
             Debug.Log($"IsDoorOpen: {isDoorOpen}");
         }
     }
@@ -111,7 +105,7 @@ public class DoorAnimation : MonoBehaviour
         if (doorProgressSlider != null)
         {
             doorProgressSlider.value = 0;
-            doorProgressPanel.gameObject.SetActive(false); // Hide slider after interaction
+            doorProgressPanel.gameObject.SetActive(false);
         }
     }
 }
