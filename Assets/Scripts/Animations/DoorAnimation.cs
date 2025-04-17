@@ -1,11 +1,11 @@
 using System;
+using SatProductions;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DoorAnimation : MonoBehaviour
 {
-    private Animator _animator;
-    private bool isDoorOpen = false;
+    private bool? isDoorOpen = false;
     private float holdTime = 0.5f;
     private float holdTimer = 0f;
     private bool isHolding = false;
@@ -15,7 +15,9 @@ public class DoorAnimation : MonoBehaviour
     [SerializeField] private float interactionDistance = 5f;
     [SerializeField] private LayerMask doorLayer;
     [SerializeField] private Transform playerHead;
+    
     private GameObject currentDoor = null;
+    private bool isBack;
 
     private void Awake()
     {
@@ -39,10 +41,15 @@ public class DoorAnimation : MonoBehaviour
                 if (detectedDoor != currentDoor)
                 {
                     currentDoor = detectedDoor;
-                    _animator = currentDoor.GetComponentInChildren<Animator>();
-                    isDoorOpen = false;
+                    isDoorOpen = null;
                     ResetSlider();
                 }
+
+                Vector3 doorForward = currentDoor.transform.forward;
+                Vector3 toPlayer = (playerHead.position - hit.point).normalized;
+                float dot = Vector3.Dot(doorForward, toPlayer);
+
+                isBack = dot < 0;
             }
         }
         else
@@ -69,7 +76,22 @@ public class DoorAnimation : MonoBehaviour
 
                 if (holdTimer >= holdTime)
                 {
-                    ToggleDoor();
+                    EasyDoor door = currentDoor.GetComponentInParent<EasyDoor>();
+                    if (door != null)
+                    {
+                        if (!door.IsOpen)
+                            door.OpenDoor(isBack);
+                        else
+                            door.CloseDoor();
+
+
+                        Debug.Log("Door toggled: " + currentDoor.name);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("EasyDoor script not found on detected object.");
+                    }
+
                     isHolding = false;
                     ResetSlider();
                 }
@@ -80,23 +102,6 @@ public class DoorAnimation : MonoBehaviour
                 isHolding = false;
                 ResetSlider();
             }
-        }
-    }
-
-    private void ToggleDoor()
-    {
-        if (_animator != null)
-        {
-            if (isDoorOpen)
-            {
-                _animator.SetTrigger("Closed");
-            }
-            else
-            {
-                _animator.SetTrigger("Opened");
-            }
-            isDoorOpen = !isDoorOpen;
-            Debug.Log($"IsDoorOpen: {isDoorOpen}");
         }
     }
 

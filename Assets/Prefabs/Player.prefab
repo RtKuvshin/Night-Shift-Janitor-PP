@@ -1269,7 +1269,7 @@ MonoBehaviour:
   interactionDistance: 5
   doorLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   playerHead: {fileID: 1699011583128152510}
 --- !u!114 &7024689072137269181
 MonoBehaviour:

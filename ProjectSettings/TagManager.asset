@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - PaintedPrefab
   - Walls
-  - CinemachineTarget
   - Door
   layers:
   - Default
@@ -15,9 +15,9 @@ TagManager:
   - Water
   - UI
   - 
-  - Player
-  - Walls
-  - Doors
+  - 
+  - Door
+  - 
   - 
   - 
   - 
