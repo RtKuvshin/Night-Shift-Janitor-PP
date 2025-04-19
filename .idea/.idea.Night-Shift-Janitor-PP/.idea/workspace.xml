@@ -6,32 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a79980e2-1561-4427-bebf-0621b5b011f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Night-Shift-Janitor-PP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animators/DoorHinge.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Animators/DoorHinge.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/brightgreen.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/brightgreen.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/brown.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/brown.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/floor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/floor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/grey.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/grey.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Materials/yellow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Prefabs/Materials/BanyanBark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Prefabs/Materials/BanyanBark.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Prefabs/Materials/BanyanBranches.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents-master/Assets/Examples/Prefabs/Materials/BanyanBranches.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/P_Lamp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/P_Lamp.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/Walls/DoorWall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/Walls/DoorWall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Animators/WalkerController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/P_Lamp.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AbandonedHospital/P_Lamp.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Lobby.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Lobby.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animations/DoorAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animations/DoorAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Walker/Walker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,6 +137,10 @@
       <workItem from="1744706575388" duration="4156000" />
       <workItem from="1744910439531" duration="1983000" />
       <workItem from="1744913261641" duration="163000" />
+      <workItem from="1744913656453" duration="1174000" />
+      <workItem from="1744964659708" duration="4583000" />
+      <workItem from="1744984868225" duration="1480000" />
+      <workItem from="1745048227400" duration="3667000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,42 +14,61 @@ public class Walker : MonoBehaviour
     [SerializeField] private float attackConeAngle = 30f;
     [SerializeField] private float armRayLength = 1f;
     [SerializeField] private int attackDamage = 25;
+    [SerializeField] private AudioClip[] _audioClips;
+
     private float stoppingDistance = 1.5f;
     private float rotationSpeed = 5f;
     private float closeRange = 3f;
     private float attackRange = 1f;
     private float attackCooldown = 1f;
+    private float soundTimer = 0f;
+    private float soundInterval = 15f;
 
     private Transform targetPlayer;
     private Animator _animator;
+    private AudioSource _audioSource;
     private bool isChasing = false;
     private bool isRunning = false;
     private bool isAttacking = false;
+    private bool isDectSoundPlayed = false;
     private float lastAttackTime = -Mathf.Infinity;
+
+    private bool isRoaring = false;
+    private bool hasRoared = false;
 
     private void Awake()
     {
         _navMeshAgent.speed = moveSpeed;
         _navMeshAgent.stoppingDistance = stoppingDistance;
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        //Vector3 origin = armTransform.position;
-        //Vector3 direction = -armTransform.forward; 
-        //Debug.DrawRay(origin, direction * armRayLength, Color.red);
         DetectPlayer();
-        bool isLookingAround = _animator.GetCurrentAnimatorStateInfo(0).IsName("LookingAround");
 
-        if (isLookingAround)
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("LookingAround"))
         {
             _navMeshAgent.isStopped = true;
             return;
         }
+
         if (isChasing && targetPlayer != null)
         {
+            if (!isDectSoundPlayed && _audioClips.Length > 1)
+            {
+                _audioSource.PlayOneShot(_audioClips[1], 0.3f);
+                isDectSoundPlayed = true;
+            }
+
             float distanceToPlayer = Vector3.Distance(transform.position, targetPlayer.position);
+
+            if (!hasRoared)
+            {
+                StartCoroutine(PlayRoarThenRun());
+                return;
+            }
 
             if (distanceToPlayer <= attackRange && Time.time >= lastAttackTime + attackCooldown)
             {
@@ -57,24 +77,18 @@ public class Walker : MonoBehaviour
             else
             {
                 isAttacking = false;
-                
-                if (_navMeshAgent.isStopped) 
-                {
-                    _navMeshAgent.isStopped = false; // Ensure movement resumes
-                }
+
+                if (_navMeshAgent.isStopped)
+                    _navMeshAgent.isStopped = false;
 
                 if (distanceToPlayer <= closeRange)
-                {
                     FacePlayerInstantly();
-                }
                 else
-                {
                     RotateTowardsPlayer();
-                }
 
                 _navMeshAgent.SetDestination(targetPlayer.position);
 
-                if (_navMeshAgent.velocity.magnitude > 0.1f) // Check if actually moving
+                if (_navMeshAgent.velocity.magnitude > 0.1f)
                 {
                     if (!isRunning)
                     {
@@ -94,10 +108,22 @@ public class Walker : MonoBehaviour
         }
         else
         {
+            if (isDectSoundPlayed) isDectSoundPlayed = false;
+
             if (isRunning)
             {
                 _animator.SetBool("Running", false);
                 isRunning = false;
+            }
+
+            if (_audioClips != null && _audioClips.Length > 0)
+            {
+                soundTimer += Time.deltaTime;
+                if (soundTimer >= soundInterval)
+                {
+                    _audioSource.PlayOneShot(_audioClips[0]);
+                    soundTimer = 0f;
+                }
             }
         }
     }
@@ -114,21 +140,51 @@ public class Walker : MonoBehaviour
 
             if (angleToPlayer < fieldOfViewAngle && distanceToPlayer <= detectionRadius)
             {
+                if (!isChasing)
+                {
+                    // Fresh detection
+                    hasRoared = false;
+                }
+
                 targetPlayer = hit.transform;
                 isChasing = true;
-                _animator.SetBool("Running", true);
-                return;
-            }
-            else
-            {
-                _animator.SetBool("Running", false);
-                _animator.Play("LookingAround");
                 return;
             }
         }
 
+        // Lost player
         isChasing = false;
         targetPlayer = null;
+        hasRoared = false;
+        isRoaring = false;
+        _animator.SetBool("Running", false);
+        _animator.Play("LookingAround");
+    }
+
+    private IEnumerator PlayRoarThenRun()
+    {
+        if (isRoaring) yield break;
+        isRoaring = true;
+
+        _navMeshAgent.isStopped = true;
+        _animator.SetBool("Running", false);
+        _animator.SetTrigger("Roar");
+
+        // Wait until Roar animation has started
+        yield return new WaitUntil(() =>
+            _animator.GetCurrentAnimatorStateInfo(0).IsName("Roar")
+        );
+
+        // Wait until Roar animation has finished
+        yield return new WaitUntil(() =>
+            _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
+        );
+
+        hasRoared = true;
+        isRoaring = false;
+        _navMeshAgent.isStopped = false;
+        _animator.SetBool("Running", true);
+        isRunning = true;
     }
 
     private void RotateTowardsPlayer()
@@ -155,22 +211,19 @@ public class Walker : MonoBehaviour
     private void AttackPlayer()
     {
         if (!isAttacking)
-        { 
+        {
             isAttacking = true;
-            _navMeshAgent.isStopped = true; 
+            _navMeshAgent.isStopped = true;
             _animator.SetBool("Running", false);
             _animator.SetTrigger("Attack");
-            lastAttackTime = Time.time; 
+            lastAttackTime = Time.time;
         }
     }
 
     public void TriggerDamage()
     {
-        
-        //Debug.Log("Animation event triggered: TriggerDamage"); 
         Vector3 origin = transform.position;
-        Vector3 attackDirection = (targetPlayer.position - origin).normalized;  
-        //float angleToTarget = Vector3.Angle(attackDirection, armTransform.forward);
+        Vector3 attackDirection = (targetPlayer.position - origin).normalized;
 
         Collider[] hits = Physics.OverlapSphere(origin, armRayLength, playerLayer);
 
@@ -180,27 +233,24 @@ public class Walker : MonoBehaviour
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
             float distanceToTarget = Vector3.Distance(origin, hit.transform.position);
 
-            
-            Debug.Log(angleToTarget);
-            if (angleToTarget <= attackConeAngle * 0.5f && distanceToTarget <= armRayLength )
+            if (angleToTarget <= attackConeAngle * 0.5f && distanceToTarget <= armRayLength)
             {
-                DealDamage(); 
-                break; 
+                DealDamage();
+                break;
             }
         }
     }
 
     private void DealDamage()
     {
-        Debug.Log("DealDamage");
         PlayerHealth.Instance.ReceiveDamage(attackDamage);
     }
+
+    
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (headBone == null) return;
-
-        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireSphere(headBone.position, detectionRadius);
 
         Vector3 forward = headBone.forward * detectionRadius;
         Quaternion leftRayRotation = Quaternion.Euler(0, -fieldOfViewAngle, 0);
@@ -214,8 +264,9 @@ public class Walker : MonoBehaviour
         Gizmos.DrawLine(headBone.position, headBone.position + rightRayDirection);
 
         UnityEditor.Handles.color = Color.red;
-        UnityEditor.Handles.DrawWireArc(headBone.position, Vector3.up, leftRayDirection.normalized, fieldOfViewAngle * 2, detectionRadius);
-        
+        UnityEditor.Handles.DrawWireArc(headBone.position, Vector3.up, leftRayDirection.normalized,
+            fieldOfViewAngle * 2, detectionRadius);
+
         if (armTransform != null)
         {
             Vector3 attackForward = armTransform.forward * armRayLength;
@@ -225,12 +276,15 @@ public class Walker : MonoBehaviour
             Vector3 leftAttackDirection = leftAttackRotation * attackForward;
             Vector3 rightAttackDirection = rightAttackRotation * attackForward;
 
-            Gizmos.color = Color.blue; // Color for the attack cone
+            Gizmos.color = Color.blue;
             Gizmos.DrawLine(armTransform.position, armTransform.position + leftAttackDirection);
             Gizmos.DrawLine(armTransform.position, armTransform.position + rightAttackDirection);
 
             UnityEditor.Handles.color = Color.blue;
-            UnityEditor.Handles.DrawWireArc(armTransform.position, Vector3.up, leftAttackDirection.normalized, attackConeAngle * 2, armRayLength);
+            UnityEditor.Handles.DrawWireArc(armTransform.position, Vector3.up, leftAttackDirection.normalized,
+                attackConeAngle * 2, armRayLength);
         }
     }
+#endif
+    
 }
